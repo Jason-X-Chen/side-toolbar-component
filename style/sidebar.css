@@ -1,0 +1,47 @@
+.toolbar{position: fixed;}
+.toolbar-item{position:relative;display:block;margin-top:1px;}
+/*样式共享，逗号分隔*/
+.toolbar-item, .toolbar-btn, .toolbar-icon, .toolbar-text{width: 52px;height: 52px;}
+.toolbar-icon, .toolbar-text{position: absolute;left:0;	text-align: center;transition:top 1s;-webkit-transition:top 1s;}
+.toolbar-item:hover .toolbar-icon{top:-52px;}
+.toolbar-item:hover .toolbar-text{top:0px;}
+.toolbar-item:hover .toolbar-layer{opacity: 1;transform:scale(1);-webkit-transform:scale(1);}
+/*overflow不在.toolbar-item设置，会导致二维码图片不能显示*/
+.toolbar-btn{position: absolute;top:0;left:0;overflow: hidden;}
+/*transition在.toolbar-btn没效果，应该加在动画的元素上*/
+.toolbar-icon{top:0;
+	background-color:#d0d6d9;
+	font-size: 30px;
+	color:#fff;
+	line-height: 52px;
+}
+.toolbar-text{top:52px;box-sizing:border-box;padding:12px;
+	background-color:#98a1a6;
+	font-size: 12px;
+	color:#fff;
+	line-height: 1.2;
+}
+.toolbar-layer{position: absolute;
+	right:46px;
+	bottom:-10px;
+	width:172px;
+	/*background-image: url(../img/toolbar_img.png);*/
+	background-repeat: no-repeat;
+	opacity: 0;
+	transform-origin:95% 95%;
+	-webkit-transform-origin:95% 95%;
+	transform:scale(1);
+	-webkit-transform:scale(0.01);
+	transition:all 1s;
+	-webkit-transition:all 1s;}
+.toolbar-layer-weixin{
+	height: 212px;
+	background-position:0 -10px;}
+.toolbar-layer-app{
+	height: 194px;
+	background-position:0 -222px;}
+/*解决图标文字换行问题*/
+/*中文*/
+/*.wrap{white-space:pre-wrap;}*/
+/*英文*/
+/*.wrap{word-wrap:break-word;}*/
